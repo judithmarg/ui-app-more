@@ -15,11 +15,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.uiprogramacion.Movie
+import com.example.domain.Movie
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MovieDetailScreen(movie: Movie?, onBackPressed: ()-> Unit) {
+fun MovieDetailScreen(onBackPressed: ()-> Unit, movie: com.example.domain.Movie) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -40,25 +40,21 @@ fun MovieDetailScreen(movie: Movie?, onBackPressed: ()-> Unit) {
             )
         },
         content = {
-            paddingValues -> MovieDetailScreenContent(modifier=Modifier.padding(paddingValues), movie)
+            paddingValues -> MovieDetailScreenContent(modifier=Modifier.padding(paddingValues)
+            , movie = movie)
         }
     )
 }
 
 @Composable
-fun MovieDetailScreenContent(modifier: Modifier, show: Movie?){
+fun MovieDetailScreenContent(modifier: Modifier, movie: com.example.domain.Movie){
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        Text(text = "Pantalla del detalle")
-        if (show != null) {
-            Text(text = show.name)
-        }
-        if (show != null) {
-            Text(text = show.description)
-        }
+        Text(text = movie.title)
+        Text(text = movie.description)
     }
 
 }

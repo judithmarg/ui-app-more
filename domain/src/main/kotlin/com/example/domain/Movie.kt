@@ -1,4 +1,4 @@
-package com.example.uiprogramacion
+package com.example.domain
 
 import kotlinx.serialization.Serializable
 
