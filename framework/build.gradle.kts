@@ -11,6 +11,12 @@ android {
 dependencies{
     implementation(libs.retrofit)
     implementation(libs.bundles.networking)
+    //local bundle room
+    implementation(libs.bundles.local)
+    annotationProcessor(libs.room.compiler)
+    ksp(libs.room.compiler)
+    testImplementation(libs.room.testing)
+
     implementation(project(":domain"))
     implementation(project(":data"))
 }
