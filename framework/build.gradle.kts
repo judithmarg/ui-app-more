@@ -1,6 +1,7 @@
 plugins{
     alias(libs.plugins.ucb.android.library)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
