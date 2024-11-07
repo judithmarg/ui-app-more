@@ -19,7 +19,7 @@ import com.example.domain.Movie
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MovieDetailScreen(onBackPressed: ()-> Unit, movie: com.example.domain.Movie) {
+fun MovieDetailScreen(onBackPressed: ()-> Unit, movieId:String) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -41,20 +41,19 @@ fun MovieDetailScreen(onBackPressed: ()-> Unit, movie: com.example.domain.Movie)
         },
         content = {
             paddingValues -> MovieDetailScreenContent(modifier=Modifier.padding(paddingValues)
-            , movie = movie)
+            , movieId = movieId)
         }
     )
 }
 
 @Composable
-fun MovieDetailScreenContent(modifier: Modifier, movie: com.example.domain.Movie){
+fun MovieDetailScreenContent(modifier: Modifier, movieId: String){
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        Text(text = movie.title)
-        Text(text = movie.description)
+        Text(text = movieId)
     }
 
 }

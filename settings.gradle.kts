@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 rootProject.name = "UI Programacion"
 include(":app")
 include(":domain")
+include(":data")

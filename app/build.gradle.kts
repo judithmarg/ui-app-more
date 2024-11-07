@@ -71,4 +71,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.kotlinx.serialization.json)
     implementation(project(":domain"))
+    implementation(project(":data"))
 }

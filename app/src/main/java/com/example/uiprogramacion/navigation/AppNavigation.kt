@@ -23,15 +23,15 @@ fun AppNavigation() {
     ) {
         composable(Screens.MoviesScreen.route) {
             MoviesScreen(
-                onClick = { movie ->
-                    navController.navigate("${Screens.MovieDetailScreen.route}/${Json.encodeToString(movie)}")
+                onClick = { movieId ->
+                    navController.navigate("${Screens.MovieDetailScreen.route}/${movieId}")
                 }
             )
         }
         composable(
-            route = "${Screens.MovieDetailScreen.route}/{movie}",
+            route = "${Screens.MovieDetailScreen.route}/{movieId}",
             arguments = listOf(
-                navArgument("movie") {
+                navArgument("movieId") {
                     type = NavType.StringType
                 }
             )
@@ -40,7 +40,7 @@ fun AppNavigation() {
                 onBackPressed = {
                     navController.popBackStack()
                 },
-                movie = Json.decodeFromString<Movie>(it.arguments?.getString("movie")?: "")
+                movieId = it.arguments?.getString("movieId")?: ""
             )
         }
     }
