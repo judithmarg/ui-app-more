@@ -28,6 +28,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.domain.Movie
+import com.example.uiprogramacion.viewmodel.InternetViewModel
 import com.example.uiprogramacion.viewmodel.MovieViewModel
 
 @Composable
@@ -46,16 +47,29 @@ fun MoviesScreen(onClick: (String) -> Unit, movieViewModel: MovieViewModel){
 
 @Composable
 fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieViewModel: MovieViewModel) {
-    Log.d("MOVIESCREEN", "MoviesScreenContent")
     var listOfMovies by remember { mutableStateOf(listOf<Movie>()) }
     val context = LocalContext.current
 
-
-    //movieViewModel.fetchData()
-
-
+    val localLifecycleOwner = LocalLifecycleOwner.current
+    val internetViewModel = InternetViewModel()
+    fun updateUI(internetUIState: InternetViewModel.InternetUIState) {
+        when ( internetUIState) {
+            is InternetViewModel.InternetUIState.Loading -> {
+                Toast.makeText(context, "Cargando", Toast.LENGTH_LONG).show()
+            }
+            is InternetViewModel.InternetUIState.Connection -> {
+                if(internetUIState.status){
+                    Toast.makeText(context, "Tiene acceso a internet", Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(context, "No tiene acceso a internet", Toast.LENGTH_LONG).show()
+                }
+            }
+            is InternetViewModel.InternetUIState.ErrorConnection -> {
+                Toast.makeText(context, internetUIState.message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
     val movieState by movieViewModel.state.collectAsStateWithLifecycle()
-
 
     when(movieState) {
         is MovieViewModel.MovieState.Loading -> {
@@ -65,8 +79,6 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
             ) {
                 CircularProgressIndicator()
             }
-
-
         }
         is MovieViewModel.MovieState.Error -> {
             Toast.makeText(context, "Error ${(movieState as MovieViewModel.MovieState.Error).errorMessage}", Toast.LENGTH_SHORT).show()
@@ -75,6 +87,12 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
             listOfMovies = (movieState as MovieViewModel.MovieState.Successful).list
         }
     }
+    internetViewModel.statusLiveData.observe(
+        localLifecycleOwner,
+        Observer(::updateUI)
+    )
+
+    internetViewModel.verify(context)
 
 
     Column(
