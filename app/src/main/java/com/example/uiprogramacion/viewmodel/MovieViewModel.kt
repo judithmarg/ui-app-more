@@ -1,6 +1,8 @@
 package com.example.uiprogramacion.viewmodel
 
+import android.content.Context
 import android.util.Log
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -29,6 +31,10 @@ class MovieViewModel @Inject constructor(
         get() = _state
     private val _state = MutableStateFlow<MovieState>(MovieState.Loading)
 
+    private val _isThereInternet = MutableStateFlow(false)
+    val isThereInternet: StateFlow<Boolean>
+        get() = _isThereInternet
+
     init {
         fetchData()
     }
@@ -36,7 +42,7 @@ class MovieViewModel @Inject constructor(
     fun fetchData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val movies = movieRepository.obtainMovies()
+                val movies = movieRepository.obtainMovies(_isThereInternet.value)
                 withContext(Dispatchers.Main) {
                     _state.value = MovieState.Successful(list = movies)
                 }
@@ -48,7 +54,10 @@ class MovieViewModel @Inject constructor(
                 }
             }
         }
+    }
 
+    fun updateInternetStatus(isInternet: Boolean) {
+        _isThereInternet.value = isInternet
     }
 
 }

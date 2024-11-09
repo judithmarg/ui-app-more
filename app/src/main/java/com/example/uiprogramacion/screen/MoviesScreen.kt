@@ -52,6 +52,8 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
 
     val localLifecycleOwner = LocalLifecycleOwner.current
     val internetViewModel = InternetViewModel()
+    var isThereInternet by remember { mutableStateOf(false) }
+
     fun updateUI(internetUIState: InternetViewModel.InternetUIState) {
         when ( internetUIState) {
             is InternetViewModel.InternetUIState.Loading -> {
@@ -60,8 +62,10 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
             is InternetViewModel.InternetUIState.Connection -> {
                 if(internetUIState.status){
                     Toast.makeText(context, "Tiene acceso a internet", Toast.LENGTH_LONG).show()
+                    movieViewModel.updateInternetStatus(true)
                 }else{
                     Toast.makeText(context, "No tiene acceso a internet", Toast.LENGTH_LONG).show()
+                    movieViewModel.updateInternetStatus(false)
                 }
             }
             is InternetViewModel.InternetUIState.ErrorConnection -> {

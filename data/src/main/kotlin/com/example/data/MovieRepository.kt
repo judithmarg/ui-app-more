@@ -5,17 +5,19 @@ import com.example.domain.Movie
 class MovieRepository(
     val localDataSource: ILocalDataSource, val remoteDataSource: IRemoteDataSource
 ) {
-    suspend fun obtainMovies(): List<Movie> {
-        val moviesRemote = remoteDataSource.fetchData()
+    suspend fun obtainMovies(isThereInternet: Boolean): List<Movie> {
+        if (isThereInternet){
+            val moviesRemote = remoteDataSource.fetchData()
 
-        when (moviesRemote) {
-            is NetworkResult.Success -> {
-                //eliminar datos de bd y actualizar
-                localDataSource.deleteAll()
-                localDataSource.insertMovies(moviesRemote.data)
-            }
-            is NetworkResult.Error -> {
-                //registrar log en Sentry
+            when (moviesRemote) {
+                is NetworkResult.Success -> {
+                    //eliminar datos de bd y actualizar
+                    localDataSource.deleteAll()
+                    localDataSource.insertMovies(moviesRemote.data)
+                }
+                is NetworkResult.Error -> {
+                    //registrar log en Sentry
+                }
             }
         }
 
