@@ -35,10 +35,23 @@ class MovieViewModel @Inject constructor(
     val isThereInternet: StateFlow<Boolean>
         get() = _isThereInternet
 
+//    init {
+//        fetchData()
+//    }
+
     init {
-        fetchData()
+        observeInternetStatus()
     }
 
+    private fun observeInternetStatus() {
+        viewModelScope.launch {
+            _isThereInternet.collect { isInternet ->
+                if (isInternet != null) {
+                    fetchData()
+                }
+            }
+        }
+    }
     fun fetchData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {

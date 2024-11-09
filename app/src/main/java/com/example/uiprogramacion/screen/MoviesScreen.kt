@@ -53,6 +53,7 @@ fun MoviesScreen(onClick: (String) -> Unit, movieViewModel: MovieViewModel){
 
 @Composable
 fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieViewModel: MovieViewModel) {
+    Log.d("MoviesScreenContent", "MoviesScreenContent UI")
     var listOfMovies by remember { mutableStateOf(listOf<Movie>()) }
     val context = LocalContext.current
 
@@ -79,6 +80,12 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
             }
         }
     }
+    internetViewModel.statusLiveData.observe(
+        localLifecycleOwner,
+        Observer(::updateUI)
+    )
+
+    internetViewModel.verify(context)
     val movieState by movieViewModel.state.collectAsStateWithLifecycle()
 
     when(movieState) {
@@ -97,13 +104,8 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
             listOfMovies = (movieState as MovieViewModel.MovieState.Successful).list
         }
     }
-    internetViewModel.statusLiveData.observe(
-        localLifecycleOwner,
-        Observer(::updateUI)
-    )
 
-    internetViewModel.verify(context)
-
+    Log.d("movies", listOfMovies.toString())
 
     Column(
         modifier = modifier.fillMaxSize()
