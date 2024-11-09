@@ -2,10 +2,14 @@ package com.example.uiprogramacion.screen
 
 import android.util.Log
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Button
@@ -27,7 +31,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Observer
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.compose.AsyncImage
 import com.example.domain.Movie
+import com.example.uiprogramacion.ui.theme.Pink80
 import com.example.uiprogramacion.viewmodel.InternetViewModel
 import com.example.uiprogramacion.viewmodel.MovieViewModel
 
@@ -101,6 +107,9 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
 
     Column(
         modifier = modifier.fillMaxSize()
+            .background(Pink80)
+            .padding(20.dp)
+
     ) {
         Text( text = "Peliculas Populares")
         LazyVerticalGrid(
@@ -115,8 +124,18 @@ fun MoviesScreenContent(modifier: Modifier, onClick: (String) -> Unit, movieView
                     ),
                     onClick = {
                         onClick(listOfMovies[it].id.toString())
-                    }
+                    },
                 ) {
+                    AsyncImage(
+                        model = "https://image.tmdb.org/t/p/w185/${listOfMovies[it].posterPath}",
+                        contentDescription = "MoviePoster",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp)
+                            .height(180.dp)
+                            .width(160.dp)
+
+                    )
                     Text(
                         text = "${listOfMovies[it].title}",
                         modifier = Modifier

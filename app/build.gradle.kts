@@ -80,6 +80,7 @@ dependencies {
     implementation(libs.hilt)
     implementation(libs.hilt.navigation)
     kapt(libs.hilt.compiler)
+    implementation(libs.coil)
 }
 kapt {
     correctErrorTypes = true

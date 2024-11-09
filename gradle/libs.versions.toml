@@ -21,6 +21,7 @@ ksp="2.0.20-1.0.24"
 room="2.6.1"
 hilt = "2.52"
 hiltNavigation = "1.2.0"
+coil ="2.7.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,6 +44,7 @@ android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", ver
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+coil={group="io.coil-kt", name="coil-compose", version.ref="coil"}
 
 # Retrofit
 retrofit = { module = "com.squareup.retrofit2:retrofit" , version.ref  = "retrofit" }
