@@ -81,8 +81,8 @@ dependencies {
     implementation(libs.hilt.navigation)
     kapt(libs.hilt.compiler)
     implementation(libs.coil)
+    implementation(libs.google.map)
 }
 kapt {
     correctErrorTypes = true
 }
-
