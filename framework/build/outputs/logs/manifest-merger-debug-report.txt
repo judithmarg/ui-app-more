@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml:2:13-83
-INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml:2:13-83
+ADDED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml:2:13-83
+INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml:2:13-83
 	package
-		INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml
+		INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml
 	xmlns:android
-		ADDED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml:2:23-81
+		ADDED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml:2:23-81
 uses-sdk
-INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml reason: use-sdk injection requested
-INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml
-INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml
+INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml reason: use-sdk injection requested
+INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml
+INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml
 	android:targetSdkVersion
-		INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml
+		INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml
 	android:minSdkVersion
-		INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest11099689397556470427.xml
+		INJECTED from /Users/estudiante/AndroidStudioProjects/UIProgramacion/framework/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest10500800989138292913.xml
