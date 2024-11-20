@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -35,6 +36,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import coil.compose.AsyncImage
 import com.example.domain.Movie
 import com.example.uiprogramacion.ui.theme.Pink40
+import com.example.uiprogramacion.util.showNotification
 import com.example.uiprogramacion.viewmodel.MovieDetailViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -115,8 +117,17 @@ fun MovieDetailScreenContent(modifier: Modifier, movieId: String){
         )
         Text(text = movieUI.title, color = Color.White, fontSize = 26.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = movieUI.description, color = Color.White)
-
+        Text(text = "genial" + movieUI.description, color = Color.White)
+        IconButton(
+            onClick = {
+                showNotification(context)
+            }
+        ) {
+            Icon(
+                Icons.Default.Notifications,
+                contentDescription = null
+            )
+        }
     }
 
 }
