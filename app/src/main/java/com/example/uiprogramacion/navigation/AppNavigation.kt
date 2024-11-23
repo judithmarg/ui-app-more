@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.domain.Movie
+import com.example.uiprogramacion.screen.CinemaMap
 import com.example.uiprogramacion.screen.MovieDetailScreen
 import com.example.uiprogramacion.screen.MoviesScreen
 import com.example.uiprogramacion.viewmodel.MovieViewModel
@@ -44,8 +45,11 @@ fun AppNavigation() {
                 onBackPressed = {
                     navController.popBackStack()
                 },
-                movieId = it.arguments?.getString("movieId")?: ""
+                movieId = it.arguments?.getString("movieId ")?: ""
             )
+        }
+        composable(Screens.CinemaMapScreen.route) {
+            CinemaMap()
         }
     }
 }
