@@ -45,7 +45,7 @@ fun AppNavigation() {
                 onBackPressed = {
                     navController.popBackStack()
                 },
-                movieId = it.arguments?.getString("movieId ")?: ""
+                movieId = it.arguments?.getString("movieId")?: ""
             )
         }
         composable(Screens.CinemaMapScreen.route) {

@@ -62,7 +62,7 @@ fun MovieDetailScreen(onBackPressed: ()-> Unit, movieId:String) {
             )
         },
         content = {
-            paddingValues -> MovieDetailScreenContent(modifier=Modifier.padding(paddingValues)
+                paddingValues -> MovieDetailScreenContent(modifier=Modifier.padding(paddingValues)
             , movieId = movieId)
         }
     )
