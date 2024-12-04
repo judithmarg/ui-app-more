@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.example.uiprogramacion.TipoCambio
 
@@ -31,7 +32,7 @@ fun PromotionContent(modifier: Modifier, tipoCambio: TipoCambio){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "TC VENTA OFICIAL")
-        Text(tipoCambio.venta_oficial)
+        Text(tipoCambio.venta_oficial, modifier = modifier.testTag("PROMOTION TEST TAG"))
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "TC COMPRA OFICIAL")
         Text(tipoCambio.compra_oficial)

@@ -67,7 +67,10 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.database)
+    implementation(libs.androidx.junit.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.ui.test.android)
+    testImplementation(libs.androidx.ui.test.junit4.android)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -85,6 +88,7 @@ dependencies {
     kapt(libs.hilt.compiler)
     implementation(libs.coil)
     implementation(libs.google.map)
+
 }
 kapt {
     correctErrorTypes = true
